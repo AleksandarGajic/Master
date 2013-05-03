@@ -1,0 +1,5 @@
+C:\umbraco\Master Rad\Master.Web\Master.Common\bin\Debug\Master.Common.dll
+C:\umbraco\Master Rad\Master.Web\Master.Common\bin\Debug\Master.Common.pdb
+C:\umbraco\Master Rad\Master.Web\Master.Common\obj\Debug\ResolveAssemblyReference.cache
+C:\umbraco\Master Rad\Master.Web\Master.Common\obj\Debug\Master.Common.dll
+C:\umbraco\Master Rad\Master.Web\Master.Common\obj\Debug\Master.Common.pdb

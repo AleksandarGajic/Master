@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VideoPage.Master.cs" Inherits="Master.Web.masterpages.VideoPage" %>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    
+	    <title>Master</title>
+		<script type="text/javascript" src="../Scripts/lib/jquery.js"></script>
+		<script src="../Scripts/video-page.js" type="text/javascript"></script>
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+	</head>
+	<body>
+		<form runat="server">
+			<section class="main">
+
+				<section class="iframe-wrap">
+				</section>
+	
+				<section class="description-wrap">
+					<div class="description">
+						<strong>Uploaded on <%= this.CurrentContent.VideoDate %></strong>
+						<p>
+							<%= this.CurrentContent.VideoDescription %>
+						</p>
+					</div>
+				</section>
+
+				<section class="comments-wrap">
+					<div class="new-comment">
+						<a class="user" href="javascript:;">Aleksandar Gajic</a>
+						<asp:TextBox ID="tbxComment" TextMode="multiline" runat="server" />
+						<asp:LinkButton ID="btnPostComment" runat="server" >Post</asp:LinkButton>
+					</div>
+					<div class="comment">
+						<asp:Repeater ID="rptComment" runat="server">
+							<ItemTemplate>
+								<a href="javascript:;">Aleksandar Gajic</a> 
+								<span class="date"><asp:Literal ID="litCommentTime" runat="server" /></span>
+								<p><asp:Literal ID="litCommentText" runat="server" /></p>
+							</ItemTemplate>
+						</asp:Repeater>
+					</div>
+				</section>
+			</section>
+		</form>
+	</body>
+</html>

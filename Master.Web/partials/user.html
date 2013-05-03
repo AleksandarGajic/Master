@@ -1,0 +1,16 @@
+﻿<section class="main-content video-page">
+	<div class="user-details">
+		<h1>Videos by {{User.Name}} {{User.LastName}}</h1>
+	</div>
+	<h3 ng-show="Videos.length == 0">No videos</h3>
+	<div ng-repeat="video in Videos" class="others" ng-class="{last : $index % 3 == 2 }">
+		<a href="/#/video/{{video.Id}}" title="{{video.Title}}" >
+			<img ng-src="{{getImageFromVideo(video.VideoLink)}}" class="rounded-img" width="300" height="225"/>
+			<h3>{{video.Title}}</h3>
+		</a>
+	</div>
+	<div class="clearfix"></div>
+	<div class="show-more">
+		<a class="submit" href="javascript:;" ng-click="showMore()" ng-show="HasMore">Show more</a>
+	</div>
+</section>

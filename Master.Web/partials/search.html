@@ -1,0 +1,23 @@
+﻿<section class="main-content search-page">
+	<h3 ng-show="Videos.length > 0">{{TotalCount}} video results for '{{term}}'</h3>
+	<h3 ng-show="Videos.length == 0">No video results for '{{term}}'</h3>	
+	<div ng-repeat="video in Videos" class="search-block" ng-class="{first : $first, last : $last}">
+		<a href="/#/video/{{video.Id}}" title="{{video.Title}}" class="search-img">
+			<img ng-src="{{getImageFromVideo(video.VideoLink)}}" class="rounded-img" width="240" height="180"/>
+		</a>
+		<div class="info">
+			<h3>
+				<a href="/#/video/{{video.Id}}" title="{{video.Title}}">
+					{{video.Title}}
+				</a>
+			</h3>
+			<p class="description">
+				{{video.VideoDescription}}
+			</p>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="show-more">
+		<a class="submit" href="javascript:;" ng-click="showMore()" ng-show="HasMore">Show more</a>
+	</div>
+</section>

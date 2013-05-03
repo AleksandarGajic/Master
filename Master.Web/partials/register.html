@@ -1,0 +1,27 @@
+﻿<section class="main-content add-video-page">
+	<div class="form" ng-show="!successfullyRegister">
+		<h1>Sign up</h1>
+		<span>Name: </span>
+		<input type="text" id="userName" placeholder="Name..." required />
+
+		<span>Last Name: </span>
+		<input type="text" id="userLastName" placeholder="Last Name..." required />
+
+		<span>Email: </span>
+		<input type="email" id="userEmail" placeholder="Email..." required />
+
+		<span>Password: </span>
+		<input type="password" id="userPassword" required/>
+
+		<span>Confirm Password: </span>
+		<input type="password" id="userConfirmPassword" required />
+		<div class="clearfix"></div>
+		<a class="submit" href="javascript:;" ng-click="registerUser()">Register</a>
+		<div class="clearfix"></div>
+	</div>
+	<div class="form" ng-show="successfullyRegister">
+		<h2>You are successfully register!</h2>
+		<br />
+		<p>In few moment you will be redirect to your page.</p>
+	</div>
+</section>

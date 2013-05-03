@@ -1,0 +1,37 @@
+﻿<section class="main-content video-page">
+	<h1>
+		{{Video.Title}} by 
+		<a href="/#/user/{{Video.VideoAuthor.Id}}" title="{{Video.VideoAuthor.Name}}" class="user">
+			{{Video.VideoAuthor.Name}} {{Video.VideoAuthor.LastName}}
+		</a>
+	</h1>
+	<iframe width="960" height="540"  src="{{getUrl(Video.VideoLink)}}?autohide=1&version=3&autoplay=1" frameborder="0" allowfullscreen></iframe>
+	<p class="date">Video posted on {{getDate(Video.VideoDate)}}</p>
+	<p class="description">{{Video.VideoDescription}}</p>
+	<div class="comments">		
+		<div class="left">
+			<div class="new-comment" ng-follow-comment="Comments">
+				<p>Leave a comment</p>
+				<span>Name: </span>
+				<input type="text" id="commentName" placeholder="Name..." required/>
+
+				<span>Comment: </span>
+				<textarea type="text" id="commentText" placeholder="Comment..."></textarea>
+
+				<a class="submit" href="javascript:;" ng-click="postComment()">Post</a>
+			</div>
+			<div class="fix"></div>
+		</div>
+		<div class="right">
+			<div ng-repeat="comment in Comments" class="post">
+				<h5>
+					<span class="float-left">{{comment.NameOfAuthor}}</span> 
+					<span class="float-right">{{getTimeAgo(comment.CommentDate)}}</span>
+				</h5>
+				<p class="description">
+					{{comment.CommentText}}
+				</p>
+			</div>
+		</div>
+	</div>
+</section>

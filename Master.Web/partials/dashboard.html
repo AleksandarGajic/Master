@@ -1,0 +1,37 @@
+﻿<section class="main-content home-page">
+	<div ng-repeat="video in Videos">
+		<ng:switch on="$first">
+			<div ng:switch-when="true" class="first">
+				<h3>
+					<a href="/#/video/{{video.Id}}" title="{{video.Title}}" >
+						{{video.Title}}
+					</a>
+					 by
+					<a href="/#/user/{{video.VideoAuthor.Id}}" title="{{video.VideoAuthor.Name}}" class="user">
+						{{video.VideoAuthor.Name}} {{video.VideoAuthor.LastName}}
+					</a>
+				</h3>
+
+				<a href="/#/video/{{video.Id}}" title="{{video.Title}}">
+					<img ng-src="{{getImageFromVideo(video.VideoLink)}}" class="rounded-img" width="960" height="440"/>
+				</a>
+				<p class="description">{{video.VideoDescription}} </p>
+				
+			</div>
+			<div ng:switch-when="false" class="others" ng-class="{last : $index % 3 == 0}">
+				<a href="/#/video/{{video.Id}}" title="{{video.Title}}" >
+					<img ng-src="{{getImageFromVideo(video.VideoLink)}}" class="rounded-img" width="300" height="225"/>
+				</a>
+				<h4>
+					<a href="/#/video/{{video.Id}}" title="{{video.Title}}" >
+						{{video.Title}}
+					</a>
+					 by
+					<a href="/#/user/{{video.VideoAuthor.Id}}" title="{{video.VideoAuthor.Name}}" class="user">
+						{{video.VideoAuthor.Name}} {{video.VideoAuthor.LastName}}
+					</a>
+				</h4>
+			</div>
+		</ng:switch>
+	</div>
+</section>

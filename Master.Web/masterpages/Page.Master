@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Page.master.cs" Inherits="Master.Web.Masterpages.Page" %>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Master" id="ng-app" >
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    
+	    <title>{{SeoTitle}}</title>
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="../Scripts/lib/async.js"></script>
+		<script type="text/javascript" src="../Scripts/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="../Scripts/lib/angular/angular-ui.js"></script>
+		<script type="text/javascript" src="../Scripts/lib/jquery.js"></script>
+		<script type="text/javascript" src="../Scripts/lib/jquery.json-2.4.min.js"></script>
+		<script type="text/javascript" src="../Scripts/lib/jquery.cookie.js"></script>
+		
+
+		<script type="text/javascript" src="/Scripts/app.js"></script>
+		<script type="text/javascript" src="/Scripts/directives.js"></script>
+		<script type="text/javascript" src="/Scripts/filters.js"></script>
+		
+		<!-- SERVICES -->
+		<script type="text/javascript" src="/Scripts/services/util.js"></script> 
+		<script type="text/javascript" src="/Scripts/services/server.js"></script>
+
+		<!-- Controlers -->
+		<script type="text/javascript" src="/Scripts/controllers/DashboardController.js"></script>
+		<script src="../Scripts/controllers/VideoController.js" type="text/javascript"></script>
+		<script src="../Scripts/controllers/UserController.js" type="text/javascript"></script>
+		<script src="../Scripts/controllers/SearchController.js" type="text/javascript"></script>
+		<script src="../Scripts/controllers/AddVideoController.js" type="text/javascript"></script>
+		<script src="../Scripts/controllers/RegisterController.js" type="text/javascript"></script>
+		<script src="../Scripts/controllers/LoginController.js" type="text/javascript"></script>
+	</head>
+	<body>	
+		<header>
+			<div class="header">
+				<div class="left">
+					<a href="/">
+						<img src="/images/ftn_grey.gif" width="80" />
+					</a>
+				</div>
+				<div class="right">
+						<div class="navigation">
+							<div ng-show="loggedIn">
+								<a href="/#/addvideo">Add new video</a> / <a href="javascript:;" ng-click="logOut()">Log out</a> 
+							</div>
+							<div ng-show="!loggedIn">
+								<a href="/#/login">Login</a> / <a href="/#/register">Register</a> 
+							</div>
+						</div>
+						<div class="search" ng-search-field="InitSearch">
+							<input type="text" id="search" placeholder="Search" />
+							<a href="javascript:;" id="searchButton"><span>search</span></a>
+						</div>
+					<div class="breadcrumb">
+						<div ng-bind-html-unsafe="breadcrumb"></div>
+					</div>
+				</div>
+			</div>
+		</header>		
+		<section class="main-content-wrap" id="mainViewContainer">
+			<section class="main" ng-view id="mainView"></section>
+		</section>		
+	</body>
+	</html>
+

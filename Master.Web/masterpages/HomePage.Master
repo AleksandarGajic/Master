@@ -1,0 +1,1 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HomePage.Master.cs" Inherits="Master.Web.Masterpages.HomePage" MasterPageFile="~/masterpages/page.master" EnableViewState="false"%>
