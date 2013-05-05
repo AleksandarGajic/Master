@@ -10,6 +10,7 @@ namespace Master.Web.search
 	using System.Collections.Generic;
 	
 	using Examine;
+	using Examine.SearchCriteria;
 	using Examine.LuceneEngine.SearchCriteria;
 	using Master.Business.Models;
 
@@ -23,7 +24,7 @@ namespace Master.Web.search
 			List<VideoModel> videos = new List<VideoModel>();
 			var Searcher = ExamineManager.Instance.SearchProviderCollection["WebsiteSearcher"];
 			var searchCriteria = Searcher.CreateSearchCriteria(UmbracoExamine.IndexTypes.Content);
-			var filter = searchCriteria.GroupedOr(new string[] { "title", "videoDescription" }, term);
+			var filter = searchCriteria.GroupedOr(new string[] { "title", "videoDescription" }, term.MultipleCharacterWildcard());
 			filter = filter.And().Field("__NodeTypeAlias", "Video");
 
 			var results = Searcher.Search(filter.Compile());

@@ -12,6 +12,8 @@ Master.controller('RegisterController', ['$scope', '$routeParams', 'ext', 'serve
     		if (userId) {
     			$rootScope.setLogin(userId);
     			ext.redirect('user/' + userId);
+    		} else {
+    			$('.main-content h3').show();
     		}
     	};
 
@@ -40,18 +42,27 @@ Master.controller('RegisterController', ['$scope', '$routeParams', 'ext', 'serve
 				confirmPassword = $.trim($('#userConfirmPassword').val()),
 				isValid = true;
 
+    		//#region [Form validation]
+    		$('.main-content h3').hide();
     		isValid = ext.validateField($('#userName'), isValid);
     		isValid = ext.validateField($('#userLastName'), isValid);
     		isValid = ext.validateField($('#userEmail'), isValid);
     		isValid = ext.validateField($('#userPassword'), isValid);
     		isValid = ext.validateField($('#userConfirmPassword'), isValid);
-    		//TODO: validate passwords match
+
     		if (!ext.testEmail(email)) {
     			isValid = false;
     			$('#userEmail').addClass('error');
     		} else {
     			$('#userEmail').removeClass('error');
     		}
+
+    		if (password !== confirmPassword) {
+    			$('#userPassword').addClass('error');
+    			$('#userConfirmPassword').addClass('error');
+    			isValid = false;
+    		}
+    		//#endregion
 
     		if (isValid) {
     			var success = ext.bind($scope.successfullyAdded, $scope),

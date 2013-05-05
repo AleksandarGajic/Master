@@ -7,3 +7,12 @@ C:\umbraco\Master Rad\Master.Web\Master.Entities\obj\Debug\Master.Entities.dll
 C:\umbraco\Master Rad\Master.Web\Master.Entities\obj\Debug\Master.Entities.pdb
 C:\umbraco\Master Rad\Master.Web\Master.Entities\bin\Debug\Vega.USiteBuilder.dll
 C:\umbraco\Master Rad\Master.Web\Master.Entities\bin\Debug\Vega.USiteBuilder.xml
+C:\umbraco\master\Master\Master.Entities\bin\Debug\Master.Entities.dll
+C:\umbraco\master\Master\Master.Entities\bin\Debug\Master.Entities.pdb
+C:\umbraco\master\Master\Master.Entities\bin\Debug\Master.Common.dll
+C:\umbraco\master\Master\Master.Entities\bin\Debug\Vega.USiteBuilder.dll
+C:\umbraco\master\Master\Master.Entities\bin\Debug\Master.Common.pdb
+C:\umbraco\master\Master\Master.Entities\bin\Debug\Vega.USiteBuilder.xml
+C:\umbraco\master\Master\Master.Entities\obj\Debug\ResolveAssemblyReference.cache
+C:\umbraco\master\Master\Master.Entities\obj\Debug\Master.Entities.dll
+C:\umbraco\master\Master\Master.Entities\obj\Debug\Master.Entities.pdb
