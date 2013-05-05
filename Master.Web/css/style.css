@@ -149,7 +149,24 @@ header .breadcrumb {
 	margin-top: 5px;
 	float: left;
 }
-
+header ul.search-suggestion {
+	z-index: 99999;
+	position: absolute;
+	width: 420px;
+	top: 28px;
+}
+header ul.search-suggestion li {
+	float: left;
+	width: 100%;
+}
+header ul.search-suggestion a:hover {
+	background: #bbb;
+}
+header ul.search-suggestion a {
+	width: 412px;
+	color: #000;
+	padding: 3px;
+}
 /* Footer*/
 footer {
 	margin-top:40px;

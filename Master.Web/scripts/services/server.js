@@ -180,7 +180,7 @@ Master.service('server', [function () {
 				}
 			});
 		},
-
+		
 		_searchSite: function (term, page, success, failure) {
 			var data = { "term": term, "page": page };
 			data = $.toJSON(data);
@@ -203,6 +203,30 @@ Master.service('server', [function () {
 				}
 			});
 		},
+
+		_searchSitePreview: function (term, success, failure) {
+			var data = { "term": term };
+			data = $.toJSON(data);
+			$.ajax({
+				type: 'POST',
+				async: false,
+				url: '/Services/MasonService.asmx/SearchSitePreview',
+				data: data,
+				contentType: "application/json; charset=utf-8",
+				dataType: 'json',
+				success: function (res) {
+					if (res.d != "") {
+						success($.evalJSON(res.d));
+					} else {
+						success(null);
+					}
+				},
+				error: function (res) {
+					failure(null);
+				}
+			});
+		},
+
 		_login: function (email, password, success, failure) {
 			var data = { "email": email, "password": password };
 			data = $.toJSON(data);
@@ -240,6 +264,7 @@ Master.service('server', [function () {
 		getUserPageDetails: this.server._getUserPageDetails,
 		getUserVideos: this.server._getUserVideos,
 		searchSite: this.server._searchSite,
+		searchSitePreview: this.server._searchSitePreview,
 		createVideo: this.server._createVideo,
 		createUser: this.server._createUser,
 		login: this.server._login

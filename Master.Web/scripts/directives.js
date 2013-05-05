@@ -16,8 +16,30 @@ directive('ngShowOverride', function () {
 		});
 	}
 }).
-directive('ngSearchField', ['ext', function (ext) {
+directive('ngSearchField', ['ext', 'server', function (ext, server) {
 	return function (scope, element, attrs) {
+
+		scope.redirect = function (searchItem) {
+			if (searchItem) {
+				scope.searchSuggestion = [];
+				ext.safeApply(scope);
+				$("#search").val('');
+				ext.redirect('video/' + searchItem.Id);
+			}
+		};
+
+		scope.getSearchTitle = function (searchItem) {
+			if (searchItem) {
+				var term = $("#search").val();
+				return searchItem.Title.toLowerCase().replace(term, '<strong>' + term + '</strong>');
+			}
+		};
+
+		scope.bindData = function (res) {
+			scope.searchSuggestion = res.Videos;
+			ext.safeApply(scope);
+		};
+
 		scope.$watch(attrs.ngSearchField, function (value) {
 			if (value) {
 				scope.doSearch = function () {
@@ -25,14 +47,24 @@ directive('ngSearchField', ['ext', function (ext) {
 					term = $.trim(term);
 					if (term !== '') {
 						term = ext.encodeRoute(term);
+						scope.searchSuggestion = [];
+						ext.safeApply(scope);
+						$("#search").val('');
 						ext.redirect('search/' + term);
 					}
 				};
 
-				$("#search").keypress(function (event) {
+				$("#search").keyup(function (event) {
 					var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
 					if (keycode == 13) {
 						scope.doSearch();
+					} else {
+						if ($(this).val().length >= 2) {
+							server.searchSitePreview($(this).val(), scope.bindData, ext.emptyFn);
+						} else {
+							scope.searchSuggestion = [];
+							ext.safeApply(scope);
+						}
 					}
 				});
 

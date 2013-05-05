@@ -52,6 +52,11 @@
 						<div class="search" ng-search-field="InitSearch">
 							<input type="text" id="search" placeholder="Search" />
 							<a href="javascript:;" id="searchButton"><span>search</span></a>
+							<ul class="search-suggestion">
+								<li ng-repeat="search in searchSuggestion">
+									<a href="javascript:;" ng-click="$parent.redirect(search)" ng-bind-html-unsafe="$parent.getSearchTitle(search)"></a>
+								</li>
+							</ul>
 						</div>
 					<div class="breadcrumb">
 						<div ng-bind-html-unsafe="breadcrumb"></div>

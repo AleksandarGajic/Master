@@ -232,6 +232,23 @@ namespace Master.Web.Services
 		}
 
 		/// <summary>
+		/// Searches the site preview.
+		/// </summary>
+		/// <param name="term">The term.</param>
+		/// <param name="page">The page.</param>
+		/// <returns></returns>
+		[WebMethod]
+		[ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
+		public string SearchSitePreview(string term)
+		{
+			JavaScriptSerializer serializer = new JavaScriptSerializer();
+			List<VideoModel> videoModels = SearchHelper.SearchSite(term);
+			VideoListModel videoListModel = new VideoListModel();
+			videoListModel.Videos = videoModels.Take(5).ToList();
+			return serializer.Serialize(videoListModel);
+		}
+
+		/// <summary>
 		/// Logins the specified email.
 		/// </summary>
 		/// <param name="email">The email.</param>

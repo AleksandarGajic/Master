@@ -8,6 +8,7 @@ namespace Master.Web.search
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Linq;
 	
 	using Examine;
 	using Examine.SearchCriteria;
@@ -22,12 +23,29 @@ namespace Master.Web.search
 		public static List<VideoModel> SearchSite(string term)
 		{
 			List<VideoModel> videos = new List<VideoModel>();
+			ISearchResults results;
 			var Searcher = ExamineManager.Instance.SearchProviderCollection["WebsiteSearcher"];
 			var searchCriteria = Searcher.CreateSearchCriteria(UmbracoExamine.IndexTypes.Content);
-			var filter = searchCriteria.GroupedOr(new string[] { "title", "videoDescription" }, term.MultipleCharacterWildcard());
-			filter = filter.And().Field("__NodeTypeAlias", "Video");
+			term = term.Trim();
+			if (term.IndexOf(' ') == -1)
+			{
+				var filter = searchCriteria.GroupedOr(new string[] { "title", "videoDescription" }, term.MultipleCharacterWildcard());
+				filter = filter.And().Field("__NodeTypeAlias", "Video");
 
-			var results = Searcher.Search(filter.Compile());
+				results = Searcher.Search(filter.Compile());
+			}
+			else
+			{
+				List<string> searchTerm = term.Split(' ').ToList();
+				var filter = searchCriteria.GroupedOr(new string[] { "title", "videoDescription" }, searchTerm[0].MultipleCharacterWildcard());
+				for (int i = 1; i < searchTerm.Count; i++) {
+					filter.And().GroupedOr(new string[] { "title", "videoDescription" }, searchTerm[i].MultipleCharacterWildcard());
+				}
+
+				filter = filter.And().Field("__NodeTypeAlias", "Video");
+
+				results = Searcher.Search(filter.Compile());
+			}
 
 			foreach (SearchResult item in results)
 			{
