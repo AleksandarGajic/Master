@@ -155,10 +155,14 @@ header ul.search-suggestion {
 	width: 420px;
 	top: 28px;
 }
+header ul.search-suggestion object {
+	z-index: 99999;
+}
 header ul.search-suggestion li {
 	float: left;
 	width: 100%;
 }
+header ul.search-suggestion li.selected a,
 header ul.search-suggestion a:hover {
 	background: #bbb;
 }

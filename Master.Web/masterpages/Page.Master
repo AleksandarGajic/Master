@@ -53,6 +53,9 @@
 							<input type="text" id="search" placeholder="Search" />
 							<a href="javascript:;" id="searchButton"><span>search</span></a>
 							<ul class="search-suggestion">
+								<object type="img/png">
+									<img src="/images/blank.png" class="img-overlay" alt="">
+								</object>
 								<li ng-repeat="search in searchSuggestion">
 									<a href="javascript:;" ng-click="$parent.redirect(search)" ng-bind-html-unsafe="$parent.getSearchTitle(search)"></a>
 								</li>

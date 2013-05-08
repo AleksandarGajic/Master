@@ -5,7 +5,7 @@
 			{{Video.VideoAuthor.Name}} {{Video.VideoAuthor.LastName}}
 		</a>
 	</h1>
-	<iframe width="960" height="540"  src="{{getUrl(Video.VideoLink)}}?autohide=1&version=3&autoplay=1" frameborder="0" allowfullscreen></iframe>
+	<iframe width="960" height="540"  src="{{getUrl(Video.VideoLink)}}?autohide=1&version=3&autoplay=1&wmode=opaque" frameborder="0" allowfullscreen></iframe>
 	<p class="date">Video posted on {{getDate(Video.VideoDate)}}</p>
 	<p class="description">{{Video.VideoDescription}}</p>
 	<div class="comments">		

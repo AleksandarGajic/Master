@@ -12,7 +12,12 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
     	};
 
     	$scope.bindComments = function (data, callback) {
-    		callback(null, data);
+    		if (callback) {
+    			callback(null, data);
+    		} else {
+    			$scope.Comments = data;
+    			ext.safeApply($scope);
+    		}
     	};
 
     	$scope.failure = function (callback) {
@@ -97,6 +102,11 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
 
     	async.parallel(flow, complete);
 
+    	Master.updateComments = ext.bind($scope.getPageComments, $scope);
+    	Master.updateCommentsInterval = setInterval('Master.updateComments()', 5 * 1000);
 
+    	$scope.$on("$destroy", function () {
+    		clearInterval(Master.updateCommentsInterval);
+    	});
     } ]
 );

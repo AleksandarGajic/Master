@@ -18,7 +18,7 @@ directive('ngShowOverride', function () {
 }).
 directive('ngSearchField', ['ext', 'server', function (ext, server) {
 	return function (scope, element, attrs) {
-
+		scope.selected = -1;
 		scope.redirect = function (searchItem) {
 			if (searchItem) {
 				scope.searchSuggestion = [];
@@ -31,7 +31,12 @@ directive('ngSearchField', ['ext', 'server', function (ext, server) {
 		scope.getSearchTitle = function (searchItem) {
 			if (searchItem) {
 				var term = $("#search").val();
-				return searchItem.Title.toLowerCase().replace(term, '<strong>' + term + '</strong>');
+				var searchTerm = searchItem.Title.toLowerCase()
+				$.each(term.split(' '), function (idx, val) {
+					searchTerm = searchTerm.replace(val, '<>' + val + '</>');
+				});
+
+				return searchTerm.replace(/<>/g, '<b>').replace(/<\/>/g, '</b>');
 			}
 		};
 
@@ -40,8 +45,17 @@ directive('ngSearchField', ['ext', 'server', function (ext, server) {
 			ext.safeApply(scope);
 		};
 
+		scope.searchSuggestion = [];
 		scope.$watch(attrs.ngSearchField, function (value) {
 			if (value) {
+				$("#search").focus(function () {
+					$('header ul.search-suggestion').show();
+				});
+
+				$("#search").blur(function () {
+					$('header ul.search-suggestion').hide();
+				});
+
 				scope.doSearch = function () {
 					var term = $("#search").val();
 					term = $.trim(term);
@@ -57,8 +71,32 @@ directive('ngSearchField', ['ext', 'server', function (ext, server) {
 				$("#search").keyup(function (event) {
 					var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
 					if (keycode == 13) {
-						scope.doSearch();
+						// Key enter pressed
+						if (scope.selected > -1) {
+							scope.redirect(scope.searchSuggestion[scope.selected]);
+							scope.selected = -1;
+						} else {
+							scope.selected = -1;
+							scope.doSearch();
+						}
+					} else if (keycode == 40) {
+						// Key down pressed
+						scope.selected++;
+						if (scope.selected >= scope.searchSuggestion.length) {
+							scope.selected = scope.searchSuggestion.length - 1;
+						}
+
+						$('header ul.search-suggestion li').removeClass('selected').eq(scope.selected).addClass('selected');
+					} else if (keycode == 38) {
+						// Key up pressed
+						scope.selected--;
+						if (scope.selected < -1) {
+							scope.selected = -1;
+						}
+
+						$('header ul.search-suggestion li').removeClass('selected').eq(scope.selected).addClass('selected');
 					} else {
+						scope.selected = -1;
 						if ($(this).val().length >= 2) {
 							server.searchSitePreview($(this).val(), scope.bindData, ext.emptyFn);
 						} else {
