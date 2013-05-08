@@ -39,6 +39,7 @@ Master.
 
         	$rootScope.setLogin = function (userId) {
         		Master.userId = userId;
+        		$rootScope.userId = userId;
         		$rootScope.loggedIn = true;
         		ext.safeApply($rootScope);
         	}

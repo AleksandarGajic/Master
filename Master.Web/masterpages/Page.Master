@@ -43,7 +43,7 @@
 				<div class="right">
 						<div class="navigation">
 							<div ng-show="loggedIn">
-								<a href="/#/addvideo">Add new video</a> / <a href="javascript:;" ng-click="logOut()">Log out</a> 
+								<a href="/#/addvideo">Add new video</a> / <a ng-href="/#/user/{{userId}}">My videos</a> / <a href="javascript:;" ng-click="logOut()">Log out</a> 
 							</div>
 							<div ng-show="!loggedIn">
 								<a href="/#/login">Login</a> / <a href="/#/register">Register</a> 
