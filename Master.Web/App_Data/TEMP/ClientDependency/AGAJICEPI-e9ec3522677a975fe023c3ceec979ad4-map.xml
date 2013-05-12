@@ -129,4 +129,13 @@
       <file name="C:\umbraco\master\Master\Master.Web\umbraco_client\MaskedInput\jquery.maskedinput-1.3.min.js" />
     </files>
   </item>
+  <item key="L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL05hbWVzcGFjZU1hbmFnZXIuanM7L3VtYnJhY29fY2xpZW50L3VpL2pxdWVyeS5qczsvdW1icmFjb19jbGllbnQvQXBwbGljYXRpb24vVW1icmFjb0NsaWVudE1hbmFnZXIuanM7L3VtYnJhY29fY2xpZW50L3VpL2RlZmF1bHQuanM7L3VtYnJhY28vanMvdW1icmFjb0NoZWNrS2V5cy5qczs=" file="C:\umbraco\master\Master\Master.Web\App_Data\TEMP\ClientDependency\1_8c40bd5359f143628d135b33a476e6b8.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="C:\umbraco\master\Master\Master.Web\umbraco_client\Application\NamespaceManager.js" />
+      <file name="C:\umbraco\master\Master\Master.Web\umbraco_client\ui\jquery.js" />
+      <file name="C:\umbraco\master\Master\Master.Web\umbraco_client\Application\UmbracoClientManager.js" />
+      <file name="C:\umbraco\master\Master\Master.Web\umbraco_client\ui\default.js" />
+      <file name="C:\umbraco\master\Master\Master.Web\umbraco\js\umbracoCheckKeys.js" />
+    </files>
+  </item>
 </map>

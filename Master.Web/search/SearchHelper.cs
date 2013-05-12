@@ -11,8 +11,8 @@ namespace Master.Web.search
 	using System.Linq;
 	
 	using Examine;
-	using Examine.SearchCriteria;
-	using Examine.LuceneEngine.SearchCriteria;
+    using Examine.LuceneEngine.SearchCriteria;
+
 	using Master.Business.Models;
 
     /// <summary>
@@ -20,9 +20,15 @@ namespace Master.Web.search
     /// </summary>
 	public static class SearchHelper
 	{
-		public static List<VideoModel> SearchSite(string term)
+        public static List<VideoModel> SearchSite(string term, string searchedCategories)
 		{
 			List<VideoModel> videos = new List<VideoModel>();
+            string[] categories = null;
+            if (!String.IsNullOrEmpty(searchedCategories))
+            {
+                categories = searchedCategories.Split(',');
+            }
+
 			ISearchResults results;
 			var Searcher = ExamineManager.Instance.SearchProviderCollection["WebsiteSearcher"];
 			var searchCriteria = Searcher.CreateSearchCriteria(UmbracoExamine.IndexTypes.Content);
@@ -31,6 +37,18 @@ namespace Master.Web.search
 			{
 				var filter = searchCriteria.GroupedOr(new string[] { "title", "videoDescription" }, term.MultipleCharacterWildcard());
 				filter = filter.And().Field("__NodeTypeAlias", "Video");
+                
+                /*
+                if (categories != null && categories.Length > 0)
+                {
+                    foreach (string category in categories)
+                    {
+                        filter = filter.And().Field("categories", category.MultipleCharacterWildcard());
+                    }
+                }*/
+                if (categories!= null && categories.Length > 0) {
+                    filter = filter.And().GroupedOr(new string[] { "categories" }, categories);
+                }
 
 				results = Searcher.Search(filter.Compile());
 			}
@@ -44,7 +62,14 @@ namespace Master.Web.search
 
 				filter = filter.And().Field("__NodeTypeAlias", "Video");
 
-				results = Searcher.Search(filter.Compile());
+                if (categories != null && categories.Length > 0)
+                {
+                    filter = filter.And().GroupedOr(new string[] { "categories" }, categories);
+                }
+
+
+
+    			results = Searcher.Search(filter.Compile());
 			}
 
 			foreach (SearchResult item in results)

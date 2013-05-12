@@ -8,3 +8,12 @@ C:\umbraco\master\Master\Master.Common\bin\Debug\Master.Common.pdb
 C:\umbraco\master\Master\Master.Common\obj\Debug\ResolveAssemblyReference.cache
 C:\umbraco\master\Master\Master.Common\obj\Debug\Master.Common.dll
 C:\umbraco\master\Master\Master.Common\obj\Debug\Master.Common.pdb
+C:\umbraco\Master\Master.Common\bin\Debug\Master.Common.dll
+C:\umbraco\Master\Master.Common\bin\Debug\Master.Common.pdb
+C:\umbraco\Master\Master.Common\obj\Debug\ResolveAssemblyReference.cache
+C:\umbraco\Master\Master.Common\obj\Debug\Master.Common.dll
+C:\umbraco\Master\Master.Common\obj\Debug\Master.Common.pdb
+D:\umbraco\master\Master.Common\bin\Debug\Master.Common.dll
+D:\umbraco\master\Master.Common\bin\Debug\Master.Common.pdb
+D:\umbraco\master\Master.Common\obj\Debug\Master.Common.dll
+D:\umbraco\master\Master.Common\obj\Debug\Master.Common.pdb

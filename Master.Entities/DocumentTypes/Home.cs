@@ -14,7 +14,7 @@ namespace Master.Entities.DocumentTypes
 	/// This class is base for all content pages.
 	/// </summary>
 	[DocumentType(IconUrl = "house.png",
-		AllowedChildNodeTypes = new[] { typeof(User)},
+		AllowedChildNodeTypes = new[] { typeof(User), typeof(CategoriesContainer)},
 		Description = "Home page.")]
 	public class Home : Base
 	{

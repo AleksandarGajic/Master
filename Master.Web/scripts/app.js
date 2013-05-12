@@ -3,7 +3,7 @@ var Master = angular.module('Master', ['Master.filters', 'Master.directives']);
 
 Master.
     config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) { //*** Configurate routes
-    	$routeProvider.
+        $routeProvider.
             when('/home', { templateUrl: 'partials/dashboard.html', controller: 'DashboardController', routeName: 'Dashboard' }).
             when('', { templateUrl: 'partials/dashboard.html', controller: 'DashboardController', routeName: 'Dashboard', redirectTo: '/home' }).
             when('/', { templateUrl: 'partials/dashboard.html', controller: 'DashboardController', routeName: 'Dashboard', redirectTo: '/home' }).
@@ -16,46 +16,52 @@ Master.
             otherwise({ redirectTo: '/home' })
         ;
     } ]).
-    run(['$rootScope', 'ext',
-        function ($rootScope, ext) {
-        	$rootScope.loggedIn = false;
-        	$rootScope.setSeoTitle = function (title) {
-        		title = title.length > 0 ? (' - ' + title) : ''
-        		$rootScope.SeoTitle = 'Master' + title;
-        		ext.safeApply($rootScope);
-        	};
+    run(['$rootScope', 'ext', 'server',
+        function ($rootScope, ext, server) {
+            $rootScope.loggedIn = false;
+            $rootScope.setSeoTitle = function (title) {
+                title = title.length > 0 ? (' - ' + title) : ''
+                $rootScope.SeoTitle = 'Master' + title;
+                ext.safeApply($rootScope);
+            };
 
-        	$rootScope.SetBreadcrumb = function (data) {
-        		$rootScope.breadcrumb = '<a href="/">Home</a>';
-        		if (data && data.VideoAuthor) {
-        			$rootScope.breadcrumb += ' > <a href="/#/user/' + data.VideoAuthor.Id + '">' + data.VideoAuthor.Name + ' ' + data.VideoAuthor.LastName + '</a>';
-        			$rootScope.breadcrumb += ' > <span>' + data.Title + '</span>';
-        		} else if (data && data.LastName) {
-        			$rootScope.breadcrumb += ' > <span>' + data.Name + ' ' + data.LastName + '</span>';
-        		} else {
-        			$rootScope.breadcrumb += ' > <span>' + data + '</span>';
-        		}
-        	}
+            $rootScope.SetBreadcrumb = function (data) {
+                $rootScope.breadcrumb = '<a href="/">Home</a>';
+                if (data && data.VideoAuthor) {
+                    $rootScope.breadcrumb += ' > <a href="/#/user/' + data.VideoAuthor.Id + '">' + data.VideoAuthor.Name + ' ' + data.VideoAuthor.LastName + '</a>';
+                    $rootScope.breadcrumb += ' > <span>' + data.Title + '</span>';
+                } else if (data && data.LastName) {
+                    $rootScope.breadcrumb += ' > <span>' + data.Name + ' ' + data.LastName + '</span>';
+                } else {
+                    $rootScope.breadcrumb += ' > <span>' + data + '</span>';
+                }
+            }
 
-        	$rootScope.setLogin = function (userId) {
-        		Master.userId = userId;
-        		$rootScope.loggedIn = true;
-        		ext.safeApply($rootScope);
-        	}
+            $rootScope.setLogin = function (userId) {
+                Master.userId = userId;
+                $rootScope.userId = userId;
+                $rootScope.loggedIn = true;
+                ext.safeApply($rootScope);
+            }
 
-        	$rootScope.logOut = function () {
-        		$.cookie('userId', '');
-        		$rootScope.loggedIn = false;
-        		Master.userId = null;
-        		delete Master.userId;
-        		ext.redirect('');
-        	}
+            $rootScope.logOut = function () {
+                $.cookie('userId', '');
+                $rootScope.loggedIn = false;
+                Master.userId = null;
+                delete Master.userId;
+                ext.redirect('');
+            }
 
-        	$rootScope.InitSearch = true;
+            $rootScope.bindCategories = function (categories) {
+                $rootScope.categories = categories;
+                ext.safeApply($rootScope);
+            }
 
-        	var userId = $.cookie('userId');
-        	if (userId) {
-        		$rootScope.setLogin(userId);
-        	}
+            $rootScope.InitSearch = true;
+            server.getAllCategories(ext.bind($rootScope.bindCategories, $rootScope), function () { });
+            var userId = $.cookie('userId');
+            if (userId) {
+                $rootScope.setLogin(userId);
+            }
         }
     ]);

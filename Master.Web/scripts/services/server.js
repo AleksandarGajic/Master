@@ -2,7 +2,28 @@
 * Utility functions
 */
 Master.service('server', [function () {
-	this.server = {
+    this.server = {
+        _getAllCategories: function (success, failure) {
+			$.ajax({
+				type: 'POST',
+				async: false,
+				url: '/Services/MasonService.asmx/GetAllCategories',
+				data: "{}",
+				contentType: "application/json; charset=utf-8",
+				dataType: 'json',
+				success: function (res) {
+					if (res.d != "") {
+						success($.evalJSON(res.d));
+					} else {
+						success(null);
+					}
+				},
+				error: function (res) {
+					failure(null);
+				}
+			});
+		},
+
 		_getLatestVideos: function (success, failure) {
 			$.ajax({
 				type: 'POST',
@@ -143,8 +164,8 @@ Master.service('server', [function () {
 			});
 		},
 
-		_createVideo: function (userId, title, text, link, success, failure) {
-			var data = { "userId": userId, "title": title, "text": text, "link": link };
+		_createVideo: function (userId, title, text, link, categories, success, failure) {
+		    var data = { "userId": userId, "title": title, "text": text, "link": link, "categories": categories.join() };
 			data = $.toJSON(data);
 			$.ajax({
 				type: 'POST',
@@ -181,8 +202,8 @@ Master.service('server', [function () {
 			});
 		},
 		
-		_searchSite: function (term, page, success, failure) {
-			var data = { "term": term, "page": page };
+		_searchSite: function (term, page, categories, success, failure) {
+			var data = { "term": term, "page": page, "categories": categories.join() };
 			data = $.toJSON(data);
 			$.ajax({
 				type: 'POST',
@@ -204,8 +225,8 @@ Master.service('server', [function () {
 			});
 		},
 
-		_searchSitePreview: function (term, success, failure) {
-			var data = { "term": term };
+		_searchSitePreview: function (term, categories, success, failure) {
+		    var data = { "term": term, "categories": categories.join() };
 			data = $.toJSON(data);
 			$.ajax({
 				type: 'POST',
@@ -256,7 +277,8 @@ Master.service('server', [function () {
 		}
 	};
 
-	return {
+    return {
+        getAllCategories: this.server._getAllCategories,
 		getLatestVideos: this.server._getLatestVideos,
 		getVideoPageDetails: this.server._getVideoPageDetails,
 		getVideoPageComments: this.server._getVideoPageComments,

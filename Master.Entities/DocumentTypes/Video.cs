@@ -52,6 +52,16 @@ namespace Master.Entities.DocumentTypes
 							  Name = "Video Link",
 							  Description = "Video Link.")]
 		public string VideoLink { get; set; }
+
+        /// <summary>
+        /// Gets or sets the categories.
+        /// </summary>
+        /// <value>The categories.</value>
+        [DocumentTypeProperty(UmbracoPropertyType.Textstring,
+                              Tab = Constants.TabNames.Content,
+                              Name = "Categories",
+                              Description = "Categories.")]
+        public string Categories { get; set; }
 		#endregion
 	}
 }

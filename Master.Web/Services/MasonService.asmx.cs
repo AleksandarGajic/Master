@@ -115,21 +115,22 @@ namespace Master.Web.Services
 			}
 		}
 
-		/// <summary>
-		/// Creates the video.
-		/// </summary>
-		/// <param name="userId">The user id.</param>
-		/// <param name="title">The title.</param>
-		/// <param name="text">The text.</param>
-		/// <param name="link">The link.</param>
+        /// <summary>
+        /// Creates the video.
+        /// </summary>
+        /// <param name="userId">The user id.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="link">The link.</param>
+        /// <param name="categories">The categories.</param>
 		[WebMethod]
 		[ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-		public void CreateVideo(string userId, string title, string text, string link)
+        public void CreateVideo(string userId, string title, string text, string link, string categories)
 		{
 			int userID = 0;
 			if (Int32.TryParse(userId, out userID))
 			{
-				NodeHelper.CreateVideo(userID, title, text, link);
+                NodeHelper.CreateVideo(userID, title, text, link, categories);
 			}
 		}
 
@@ -207,18 +208,19 @@ namespace Master.Web.Services
 			return serializer.Serialize(videoListModel);
 		}
 
-		/// <summary>
-		/// Searches the site.
-		/// </summary>
-		/// <param name="term">The term.</param>
-		/// <param name="page">The page.</param>
-		/// <returns>List of video models</returns>
+        /// <summary>
+        /// Searches the site.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <param name="page">The page.</param>
+        /// <param name="categories">The categories.</param>
+        /// <returns>List of video models</returns>
 		[WebMethod]
 		[ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-		public string SearchSite(string term, string page)
+        public string SearchSite(string term, string page, string categories)
 		{
 			JavaScriptSerializer serializer = new JavaScriptSerializer();
-			List<VideoModel> videoModels = SearchHelper.SearchSite(term);
+            List<VideoModel> videoModels = SearchHelper.SearchSite(term, categories);
 			int pageNumber = 0;
 			VideoListModel videoListModel = new VideoListModel();
 			if (Int32.TryParse(page, out pageNumber))
@@ -231,18 +233,18 @@ namespace Master.Web.Services
 			return serializer.Serialize(videoListModel);
 		}
 
-		/// <summary>
-		/// Searches the site preview.
-		/// </summary>
-		/// <param name="term">The term.</param>
-		/// <param name="page">The page.</param>
-		/// <returns></returns>
+        /// <summary>
+        /// Searches the site preview.
+        /// </summary>
+        /// <param name="term">The term.</param>
+        /// <param name="categories">The categories.</param>
+        /// <returns>List of video model</returns>
 		[WebMethod]
 		[ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-		public string SearchSitePreview(string term)
+        public string SearchSitePreview(string term, string categories)
 		{
 			JavaScriptSerializer serializer = new JavaScriptSerializer();
-			List<VideoModel> videoModels = SearchHelper.SearchSite(term);
+            List<VideoModel> videoModels = SearchHelper.SearchSite(term, categories);
 			VideoListModel videoListModel = new VideoListModel();
 			videoListModel.Videos = videoModels.Take(5).ToList();
 			return serializer.Serialize(videoListModel);
@@ -262,5 +264,19 @@ namespace Master.Web.Services
 			UserModel user = NodeHelper.FindUser(email, password);
 			return serializer.Serialize(user);
 		}
+
+        /// <summary>
+        /// Gets all categories.
+        /// </summary>
+        /// <returns>All categories</returns>
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
+        public string GetAllCategories()
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<CategoryModel> retVal = NodeHelper.GetAllCategories();
+
+            return serializer.Serialize(retVal);
+        }
 	}
 }

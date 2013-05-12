@@ -10,6 +10,12 @@
 		<span>Description: </span>
 		<textarea type="text" id="videoDescription" placeholder="Description..."></textarea>
 		<div class="clearfix"></div>
+        <span>Categories: </span>
+          <div ng-repeat="category in categories" class="category">
+            <input type="checkbox" name="{{category.Id}}" id="addvideo{{category.Id}}" value="{{category.Id}}" />
+            <label for="addvideo{{category.Id}}">{{category.Title}}</label>
+        </div>
+        <div class="clearfix"></div>
 		<a class="submit" href="javascript:;" ng-click="addVideo()">Add</a>
 		<div class="clearfix"></div>
 	</div>

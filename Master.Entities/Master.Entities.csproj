@@ -44,15 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocumentTypes\Base.cs" />
+    <Compile Include="DocumentTypes\Repository\CategoriesContainer.cs" />
+    <Compile Include="DocumentTypes\Repository\Category.cs" />
     <Compile Include="DocumentTypes\Video.cs" />
     <Compile Include="DocumentTypes\User.cs" />
     <Compile Include="DocumentTypes\Comment.cs" />
     <Compile Include="DocumentTypes\Home.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DocumentTypes\Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Master.Common\Master.Common.csproj">
       <Project>{F0F18452-4CF8-4398-8A7F-F39F7AE261BF}</Project>

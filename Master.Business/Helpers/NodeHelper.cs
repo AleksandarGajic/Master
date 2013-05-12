@@ -122,14 +122,15 @@ namespace Master.Business.Helpers
 			doc.Save();
 		}
 
-		/// <summary>
-		/// Creates the video.
-		/// </summary>
-		/// <param name="parentId">The parent id.</param>
-		/// <param name="title">The title.</param>
-		/// <param name="text">The text.</param>
-		/// <param name="link">The link.</param>
-		public static void CreateVideo(int parentId, string title, string text, string link)
+        /// <summary>
+        /// Creates the video.
+        /// </summary>
+        /// <param name="parentId">The parent id.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="link">The link.</param>
+        /// <param name="categories">The categories.</param>
+        public static void CreateVideo(int parentId, string title, string text, string link, string categories)
 		{
 			DocumentType comment = DocumentType.GetByAlias("Video");
 			umbraco.BusinessLogic.User author = umbraco.BusinessLogic.User.GetUser(0);
@@ -138,6 +139,7 @@ namespace Master.Business.Helpers
 			doc.getProperty("videoDescription").Value = text;
 			doc.getProperty("videoLink").Value = link;
 			doc.getProperty("videoDate").Value = DateTime.Now;
+            doc.getProperty("categories").Value = categories.Replace(',',' ');
 
 			doc.Publish(author);
 			umbraco.library.UpdateDocumentCache(doc.Id);
@@ -182,6 +184,22 @@ namespace Master.Business.Helpers
 
 			return userModel;
 		}
+
+        /// <summary>
+        /// Gets all categories.
+        /// </summary>
+        /// <returns>List of all categories</returns>
+        public static List<CategoryModel> GetAllCategories()
+        {
+            List<CategoryModel> retVal = new List<CategoryModel>();
+            List<Category> categories = ContentHelper.GetChildren<Category>(1213);
+            foreach (Category category in categories)
+            {
+                retVal.Add(new CategoryModel(category));
+            }
+
+            return retVal;
+        }
 
 		/// <summary>
 		/// Gets the milliseconds.

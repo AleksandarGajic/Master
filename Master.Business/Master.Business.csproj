@@ -65,6 +65,7 @@
     <Compile Include="Helpers\NodeHelper.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CommentListModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\VideoListModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\CommentModel.cs" />

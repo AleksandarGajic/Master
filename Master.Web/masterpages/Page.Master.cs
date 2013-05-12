@@ -7,7 +7,7 @@ namespace Master.Web.Masterpages
 {
     using System;
 
-	/// <summary>
+    /// <summary>
     /// Page master page.
     /// </summary>
     public partial class Page : Vega.USiteBuilder.TemplateBase<Master.Entities.DocumentTypes.Base>
