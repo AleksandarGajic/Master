@@ -41,7 +41,6 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
 				text = $('#commentText').val(),
 				isValid = true;
 
-
     		if ($.trim(name) == '') {
     			isValid = false;
     			$('#commentName').addClass('error');
