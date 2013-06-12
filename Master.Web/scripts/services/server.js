@@ -141,8 +141,8 @@ Master.service('server', [function () {
 			});
 		},
 
-		_createComment: function (videoId, text, name, success, failure) {
-			var data = { "videoId": videoId, "text": text, "name": name };
+		_createComment: function (videoId, text, name, time, success, failure) {
+			var data = { "videoId": videoId, "text": text, "name": name, "time": time };
 			data = $.toJSON(data);
 			$.ajax({
 				type: 'POST',

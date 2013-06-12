@@ -109,6 +109,9 @@
     <Content Include="Scripts\lib\jquery.cookie.js" />
     <Content Include="Scripts\lib\jquery.js" />
     <Content Include="Scripts\lib\jquery.json-2.4.min.js" />
+    <Content Include="Scripts\lib\jwplayer\jwplayer.flash.swf" />
+    <Content Include="Scripts\lib\jwplayer\jwplayer.js" />
+    <Content Include="Scripts\lib\jwplayer\test.html" />
     <Content Include="Scripts\services\server.js" />
     <Content Include="Scripts\services\util.js" />
     <Content Include="Scripts\video-page.js" />

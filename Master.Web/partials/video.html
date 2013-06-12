@@ -1,11 +1,10 @@
-﻿<section class="main-content video-page">
+﻿<section class="main	-content video-page">
 	<h1>
 		{{Video.Title}} by 
 		<a href="/#/user/{{Video.VideoAuthor.Id}}" title="{{Video.VideoAuthor.Name}}" class="user">
 			{{Video.VideoAuthor.Name}} {{Video.VideoAuthor.LastName}}
 		</a>
 	</h1>
-	<!--<iframe width="960" height="540"  src="{{getUrl(Video.VideoLink)}}?autohide=1&version=3&autoplay=1&wmode=opaque" frameborder="0" allowfullscreen></iframe>-->
 	<ng-player link="getUrl(Video.VideoLink)"></ng-player>
 	<p class="date">Video posted on {{getDate(Video.VideoDate)}}</p>
 	<p class="description">{{Video.VideoDescription}}</p>
@@ -13,6 +12,8 @@
 		<div class="left">
 			<div class="new-comment" ng-follow-comment="Comments">
 				<p>Leave a comment</p>
+				<input type="checkbox" ng-click="takeVideoTime()" id="cbxTakeTime"/>
+				<label for="cbxTakeTime">Bind comment with video</label>
 				<span>Name: </span>
 				<input type="text" id="commentName" placeholder="Name..." required/>
 
@@ -30,6 +31,11 @@
 					<span class="float-right">{{getTimeAgo(comment.CommentDate)}}</span>
 				</h5>
 				<p class="description">
+					<span ui-if="comment.VideoTime">
+						<a href="javascript:;" ng-click="seekVideo(comment.VideoTime)">
+							{{formatMovieDuration(comment.VideoTime, false, true, true)}}
+						</a>
+					</span>
 					{{comment.CommentText}}
 				</p>
 			</div>

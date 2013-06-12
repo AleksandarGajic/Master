@@ -13,14 +13,14 @@
 				</h3>
 
 				<a href="/#/video/{{video.Id}}" title="{{video.Title}}">
-					<img ng-src="{{getImageFromVideo(video.VideoLink)}}" class="rounded-img" width="960" height="440"/>
+					<img ng-src="{{getImageFromVideo(video)}}" class="rounded-img" width="960" height="440"/>
 				</a>
 				<p class="description">{{video.VideoDescription}} </p>
 				
 			</div>
 			<div ng:switch-when="false" class="others" ng-class="{last : $index % 3 == 0}">
 				<a href="/#/video/{{video.Id}}" title="{{video.Title}}" >
-					<img ng-src="{{getImageFromVideo(video.VideoLink)}}" class="rounded-img" width="300" height="225"/>
+					<img ng-src="{{getImageFromVideo(video)}}" class="rounded-img" width="300" height="225"/>
 				</a>
 				<h4>
 					<a href="/#/video/{{video.Id}}" title="{{video.Title}}" >

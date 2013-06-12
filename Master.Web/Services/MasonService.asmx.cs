@@ -106,12 +106,12 @@ namespace Master.Web.Services
 		/// <param name="name">The name.</param>
 		[WebMethod]
 		[ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json, XmlSerializeString = false)]
-		public void CreateComment(string videoId, string text, string name)
+		public void CreateComment(string videoId, string text, string name, string time)
 		{
 			int videoID = 0;
 			if (Int32.TryParse(videoId, out videoID))
 			{
-				NodeHelper.CreateComment(videoID, text, name);
+				NodeHelper.CreateComment(videoID, text, name, time);
 			}
 		}
 

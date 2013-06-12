@@ -7,6 +7,7 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
     	$scope.getUrl = ext.getFriendlyUrlForVideo;
     	$scope.getDate = ext.getDate;
     	$scope.getTimeAgo = ext.getTimeAgo;
+    	$scope.formatMovieDuration = ext.formatMovieDuration;
     	$scope.bindData = function (data, callback) {
     		callback(null, data);
     	};
@@ -32,13 +33,28 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
     		server.getVideoPageComments($scope.videoId, ext.bind($scope.bindComments, $scope, [callback], true), ext.bind($scope.failure, $scope, [callback], false));
     	};
 
-    	$scope.createComment = function (callback, name, tekst) {
-    		server.createComment($scope.videoId, tekst, name, callback, callback);
+    	$scope.takeVideoTime = function () {
+    		$scope.currentTime = 0;
+    		if ($('#cbxTakeTime').is(':checked')) {
+    			if (jwplayer && jwplayer()) {
+    				jwplayer().pause();
+    				$scope.currentTime = jwplayer().getPosition();
+    			}
+    		}
+    	};
+
+    	$scope.seekVideo = function (time) {
+    		jwplayer().seek(time);
+    	};
+
+    	$scope.createComment = function (callback, name, text, time) {
+    		server.createComment($scope.videoId, text, name, time, callback, callback);
     	};
 
     	$scope.postComment = function () {
     		var name = $('#commentName').val(),
 				text = $('#commentText').val(),
+				time = $scope.currentTime ? $scope.currentTime : 0,
 				isValid = true;
 
     		if ($.trim(name) == '') {
@@ -57,7 +73,7 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
 
     		var flow =
 			[
-				ext.bind($scope.createComment, $scope, [name, text], true),
+				ext.bind($scope.createComment, $scope, [name, text, time], true),
 				ext.bind($scope.getPageComments, $scope)
 			],
 			complete = ext.bind(

@@ -270,7 +270,7 @@ footer .footer {
 }
 .video-page .new-comment {
 	width: 300px;
-	height: 260px;
+	height: 280px;
 	float: left;
 	clear: both;
 	padding: 0 15px 15px 15px;
@@ -295,6 +295,13 @@ footer .footer {
 	float: left;
 	clear: both;
 	position: relative;
+}
+.video-page .new-comment input[type="checkbox"] {
+	width: 20px;
+}
+.video-page .new-comment label {
+	position:relative;
+	top:-2px;
 }
 .video-page .new-comment textarea {
 	float: left;
