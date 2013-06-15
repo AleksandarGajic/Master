@@ -23,31 +23,6 @@ C:\umbraco\Master Rad\Master.Web\Master.Web\bin\MySql.Data.dll
 C:\umbraco\Master Rad\Master.Web\Master.Web\bin\Microsoft.ApplicationBlocks.Data.dll
 C:\umbraco\Master Rad\Master.Web\Master.Web\bin\umbraco.XmlSerializers.dll
 C:\umbraco\Master Rad\Master.Web\Master.Web\bin\Lucene.Net.dll
-C:\umbraco\master\Master\Master.Web\bin\Master.Web.dll
-C:\umbraco\master\Master\Master.Web\bin\Master.Web.pdb
-C:\umbraco\master\Master\Master.Web\bin\ICSharpCode.SharpZipLib.dll
-C:\umbraco\master\Master\Master.Web\bin\Master.Business.dll
-C:\umbraco\master\Master\Master.Web\bin\Master.Common.dll
-C:\umbraco\master\Master\Master.Web\bin\Master.Entities.dll
-C:\umbraco\master\Master\Master.Web\bin\Vega.USiteBuilder.dll
-C:\umbraco\master\Master\Master.Web\bin\interfaces.dll
-C:\umbraco\master\Master\Master.Web\bin\umbraco.DataLayer.dll
-C:\umbraco\master\Master\Master.Web\bin\ClientDependency.Core.dll
-C:\umbraco\master\Master\Master.Web\bin\TidyNet.dll
-C:\umbraco\master\Master\Master.Web\bin\Lucene.Net.dll
-C:\umbraco\master\Master\Master.Web\bin\CookComputing.XmlRpcV2.dll
-C:\umbraco\master\Master\Master.Web\bin\controls.dll
-C:\umbraco\master\Master\Master.Web\bin\umbraco.providers.dll
-C:\umbraco\master\Master\Master.Web\bin\MySql.Data.dll
-C:\umbraco\master\Master\Master.Web\bin\Microsoft.ApplicationBlocks.Data.dll
-C:\umbraco\master\Master\Master.Web\bin\Master.Business.pdb
-C:\umbraco\master\Master\Master.Web\bin\Master.Common.pdb
-C:\umbraco\master\Master\Master.Web\bin\Master.Entities.pdb
-C:\umbraco\master\Master\Master.Web\bin\Vega.USiteBuilder.xml
-C:\umbraco\master\Master\Master.Web\bin\umbraco.XmlSerializers.dll
-C:\umbraco\master\Master\Master.Web\obj\Debug\ResolveAssemblyReference.cache
-C:\umbraco\master\Master\Master.Web\obj\Debug\Master.Web.dll
-C:\umbraco\master\Master\Master.Web\obj\Debug\Master.Web.pdb
 C:\umbraco\Master\Master.Web\bin\Master.Web.dll
 C:\umbraco\Master\Master.Web\bin\Master.Web.pdb
 C:\umbraco\Master\Master.Web\bin\ICSharpCode.SharpZipLib.dll
@@ -98,3 +73,17 @@ D:\umbraco\master\Master.Web\bin\umbraco.XmlSerializers.dll
 D:\umbraco\master\Master.Web\obj\Debug\Master.Web.csprojResolveAssemblyReference.cache
 D:\umbraco\master\Master.Web\obj\Debug\Master.Web.dll
 D:\umbraco\master\Master.Web\obj\Debug\Master.Web.pdb
+C:\umbraco\master\Master\Master.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\umbraco\master\Master\Master.Web\bin\Master.Web.dll
+C:\umbraco\master\Master\Master.Web\bin\Master.Web.pdb
+C:\umbraco\master\Master\Master.Web\bin\ICSharpCode.SharpZipLib.dll
+C:\umbraco\master\Master\Master.Web\bin\Master.Business.dll
+C:\umbraco\master\Master\Master.Web\bin\Master.Common.dll
+C:\umbraco\master\Master\Master.Web\bin\Master.Entities.dll
+C:\umbraco\master\Master\Master.Web\bin\Vega.USiteBuilder.dll
+C:\umbraco\master\Master\Master.Web\bin\Master.Business.pdb
+C:\umbraco\master\Master\Master.Web\bin\Master.Common.pdb
+C:\umbraco\master\Master\Master.Web\bin\Master.Entities.pdb
+C:\umbraco\master\Master\Master.Web\bin\Vega.USiteBuilder.xml
+C:\umbraco\master\Master\Master.Web\obj\Debug\Master.Web.dll
+C:\umbraco\master\Master\Master.Web\obj\Debug\Master.Web.pdb

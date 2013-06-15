@@ -10,6 +10,7 @@ namespace Master.Business.Models
 	using Master.Entities.DocumentTypes;
 
 	using Vega.USiteBuilder;
+	using Master.Business.Helpers;
 
 	/// <summary>
 	/// Video model class
@@ -29,6 +30,16 @@ namespace Master.Business.Models
 			this.VideoDescription = videoPage.VideoDescription;
 			this.VideoAuthor = new UserModel(ContentHelper.GetByNodeId<User>(videoPage.ParentId));
 			this.SeoTitle = videoPage.Title;
+			this.VideoImage = String.Empty;
+
+			if (videoPage.VideoImage.HasValue)
+			{
+				this.VideoImage = MediaHelper.GetMediaUrlById(videoPage.VideoImage.Value);
+			}
+			if (videoPage.VideoLinkBO.HasValue)
+			{
+				this.VideoLink = MediaHelper.GetMediaUrlById(videoPage.VideoLinkBO.Value);
+			}
 		}
 
 		/// <summary>
@@ -73,5 +84,11 @@ namespace Master.Business.Models
 		/// </summary>
 		/// <value>The video author.</value>
 		public UserModel VideoAuthor { get; set; }
+
+		/// <summary>
+		/// Gets or sets the video image.
+		/// </summary>
+		/// <value>The video image.</value>
+		public string VideoImage { get; set; }
 	}
 }

@@ -107,7 +107,8 @@ namespace Master.Business.Helpers
 		/// <param name="parentId">The parent id.</param>
 		/// <param name="text">The text.</param>
 		/// <param name="name">The name.</param>
-		public static void CreateComment(int parentId, string text, string name)
+		/// <param name="time">The time.</param>
+		public static void CreateComment(int parentId, string text, string name, string time)
 		{
 			DocumentType comment = DocumentType.GetByAlias("Comment");
 			umbraco.BusinessLogic.User author = umbraco.BusinessLogic.User.GetUser(0);
@@ -116,6 +117,7 @@ namespace Master.Business.Helpers
 			doc.getProperty("commentText").Value = text;
 			doc.getProperty("nameOfAuthor").Value = name;
 			doc.getProperty("commentDate").Value = DateTime.Now;
+			doc.getProperty("videoTime").Value = (int)Convert.ToDouble(time);
 
 			doc.Publish(author);
 			umbraco.library.UpdateDocumentCache(doc.Id);

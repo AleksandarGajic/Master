@@ -765,7 +765,6 @@
       <DependentUpon>VideoPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="search\SearchHelper.cs" />
     <Compile Include="Services\MasonService.asmx.cs">
       <DependentUpon>MasonService.asmx</DependentUpon>
       <SubType>Component</SubType>

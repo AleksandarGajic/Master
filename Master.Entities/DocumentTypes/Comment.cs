@@ -44,6 +44,17 @@ namespace Master.Entities.DocumentTypes
 		public string CommentText { get; set; }
 
 		/// <summary>
+		/// Gets or sets the video time.
+		/// </summary>
+		/// <value>The video time.</value>
+		[DocumentTypeProperty(UmbracoPropertyType.Numeric,
+					  Tab = Constants.TabNames.Content,
+					  Name = "VideoTime",
+					  Description = "VideoTime",
+					  Mandatory = false)]
+		public int VideoTime { get; set; }
+
+		/// <summary>
 		/// Gets or sets the title.
 		/// </summary>
 		/// <value>The title.</value>

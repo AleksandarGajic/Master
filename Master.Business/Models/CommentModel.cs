@@ -23,7 +23,14 @@ namespace Master.Business.Models
 			this.NameOfAuthor = commentPage.NameOfAuthor;
 			this.CommentText = commentPage.CommentText;
 			this.CommentDate = commentPage.CommentDate;
+			this.VideoTime = commentPage.VideoTime.ToString();
 		}
+
+		/// <summary>
+		/// Gets or sets the video time.
+		/// </summary>
+		/// <value>The video time.</value>
+		public string VideoTime { get; set; }
 
 		/// <summary>
 		/// Gets or sets the name of author.

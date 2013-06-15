@@ -12,36 +12,15 @@ namespace Master.Common
 	public static class Constants
 	{
 		#region [NumberOfItems]
-
-		/// <summary>
-		/// Image of black arrow for links
-		/// </summary>
-		public const string LinkArrowBlack = "<img align=\"absmiddle\" alt=\"arrow_right_black\" src=\"/img/arrow_right_black.png\" class=\"inline\"/>";
-
-		/// <summary>
-		/// Image of white arrow for links
-		/// </summary>
-		public const string LinkArrowWhite = "<img align=\"absmiddle\" alt=\"arrow_right_black\" src=\"/img/arrow_right_white.png\" class=\"inline\"/>";
-
-		/// <summary>
-		/// Image of red arrow for links
-		/// </summary>
-		public const string LinkArrowRed = "<img class=\"inline\" alt=\"arrow_right_red\" src=\"/img/arrow_right_red.png\" align=\"absmiddle\"/>";
-
-		/// <summary>
-		/// Image of green arrow for links
-		/// </summary>
-		public const string LinkArrowGreen = "<img class=\"inline\" alt=\"arrow_right_green\" src=\"/img/arrow_right_green.png\" align=\"absmiddle\"/>";
-
 		/// <summary>
 		/// Number of persons per colum on persons list page.
 		/// </summary>
-		public const int NumberOfPersonsPerPage = 16;
+		public const int MaxVideosPerPage = 16;
 
 		/// <summary>
 		/// Number of activities per company
 		/// </summary>
-		public const int NumberOfActivitiesPerCompany = 1;
+		public const int MaxCommentsPerPage = 1;
 
 		/// <summary>
 		/// Number of Images per colum on Large Gallert List item page.

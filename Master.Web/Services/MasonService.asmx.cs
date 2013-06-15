@@ -14,7 +14,6 @@ namespace Master.Web.Services
 	using Master.Business.Helpers;
 	using Master.Business.Models;
 	using Master.Entities.DocumentTypes;
-	using Master.Web.search;
 	using Vega.USiteBuilder;
 
 	/// <summary>

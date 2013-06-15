@@ -25,33 +25,6 @@ C:\umbraco\Master Rad\Master.Web\Master.Business\bin\Debug\umbraco.XmlSerializer
 C:\umbraco\Master Rad\Master.Web\Master.Business\bin\Debug\interfaces.dll
 C:\umbraco\Master Rad\Master.Web\Master.Business\bin\Debug\umbraco.DataLayer.dll
 C:\umbraco\Master Rad\Master.Web\Master.Business\bin\Debug\controls.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Business.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Business.pdb
-C:\umbraco\master\Master\Master.Business\bin\Debug\businesslogic.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\cms.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Common.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Entities.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.editorControls.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\UmbracoExamine.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Vega.USiteBuilder.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\interfaces.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.DataLayer.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\ClientDependency.Core.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\TidyNet.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\CookComputing.XmlRpcV2.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\controls.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.providers.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Lucene.Net.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\MySql.Data.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Microsoft.ApplicationBlocks.Data.dll
-C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Common.pdb
-C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Entities.pdb
-C:\umbraco\master\Master\Master.Business\bin\Debug\Vega.USiteBuilder.xml
-C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.XmlSerializers.dll
-C:\umbraco\master\Master\Master.Business\obj\Debug\ResolveAssemblyReference.cache
-C:\umbraco\master\Master\Master.Business\obj\Debug\Master.Business.dll
-C:\umbraco\master\Master\Master.Business\obj\Debug\Master.Business.pdb
 C:\umbraco\Master\Master.Business\bin\Debug\Master.Business.dll
 C:\umbraco\Master\Master.Business\bin\Debug\Master.Business.pdb
 C:\umbraco\Master\Master.Business\bin\Debug\businesslogic.dll
@@ -106,3 +79,20 @@ D:\umbraco\master\Master.Business\bin\Debug\umbraco.XmlSerializers.dll
 D:\umbraco\master\Master.Business\obj\Debug\Master.Business.csprojResolveAssemblyReference.cache
 D:\umbraco\master\Master.Business\obj\Debug\Master.Business.dll
 D:\umbraco\master\Master.Business\obj\Debug\Master.Business.pdb
+C:\umbraco\master\Master\Master.Business\obj\Debug\ResolveAssemblyReference.cache
+C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Business.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Business.pdb
+C:\umbraco\master\Master\Master.Business\bin\Debug\businesslogic.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\cms.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\Examine.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Common.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Entities.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\umbraco.editorControls.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\UmbracoExamine.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\Vega.USiteBuilder.dll
+C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Common.pdb
+C:\umbraco\master\Master\Master.Business\bin\Debug\Master.Entities.pdb
+C:\umbraco\master\Master\Master.Business\bin\Debug\Vega.USiteBuilder.xml
+C:\umbraco\master\Master\Master.Business\obj\Debug\Master.Business.dll
+C:\umbraco\master\Master\Master.Business\obj\Debug\Master.Business.pdb

@@ -44,6 +44,26 @@ namespace Master.Entities.DocumentTypes
 		public DateTime VideoDate { get; set; }
 
 		/// <summary>
+		/// Gets or sets the video image.
+		/// </summary>
+		/// <value>The video image.</value>
+		[DocumentTypeProperty(UmbracoPropertyType.MediaPicker,
+							  Tab = Constants.TabNames.Content,
+							  Name = "Video Image",
+							  Description = "Video Image.")]
+		public int? VideoImage { get; set; }
+
+		/// <summary>
+		/// Gets or sets the video link BO.
+		/// </summary>
+		/// <value>The video link BO.</value>
+		[DocumentTypeProperty(UmbracoPropertyType.MediaPicker,
+							  Tab = Constants.TabNames.Content,
+							  Name = "VideoLinkBO",
+							  Description = "VideoLinkBO")]
+		public int? VideoLinkBO { get; set; }
+		
+		/// <summary>
 		/// Gets or sets the video link.
 		/// </summary>
 		/// <value>The video link.</value>
