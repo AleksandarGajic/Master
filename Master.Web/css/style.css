@@ -425,3 +425,16 @@ footer .footer {
   	width: 120px;
   	display: block;
   }
+  .message-box {
+  	position: absolute;
+  	width: 500px;
+  	text-align: center;
+  	top: 100px;
+  	left: 230px;
+  	background: url(/images/transparent.png);
+  	z-index: 9999;
+  	color: #fff;
+  }
+  .message-box h3 {
+  	color: #fff;
+  }

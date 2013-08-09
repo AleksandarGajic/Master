@@ -1,11 +1,25 @@
-﻿<section class="main	-content video-page">
-	<h1>
-		{{Video.Title}} by 
-		<a href="/#/user/{{Video.VideoAuthor.Id}}" title="{{Video.VideoAuthor.Name}}" class="user">
-			{{Video.VideoAuthor.Name}} {{Video.VideoAuthor.LastName}}
-		</a>
-	</h1>
-	<ng-player link="getUrl(Video.VideoLink)"></ng-player>
+﻿<section class="main-content video-page">
+	<div style="position: relative;">
+		<h1>
+			{{Video.Title}} by 
+			<a href="/#/user/{{Video.VideoAuthor.Id}}" title="{{Video.VideoAuthor.Name}}" class="user">
+				{{Video.VideoAuthor.Name}} {{Video.VideoAuthor.LastName}}
+			</a>
+		</h1>
+		<div class="message-box" ng-style="MessageStyle" ng-show="showMessageBox">
+			<div class="inner">
+				<object type="img/png">
+					<img src="/images/blank.png" class="img-overlay" alt="" />
+				</object>
+				<div class="text">
+					<h3>
+						{{MessageBoxText}}
+					</h3>
+				</div>
+			</div>
+		</div> 
+		<ng-player link="getUrl(Video.VideoLink)"></ng-player>
+	</div>
 	<p class="date">Video posted on {{getDate(Video.VideoDate)}}</p>
 	<p class="description">{{Video.VideoDescription}}</p>
 	<div class="comments">		
@@ -32,7 +46,7 @@
 				</h5>
 				<p class="description">
 					<span ui-if="comment.VideoTime">
-						<a href="javascript:;" ng-click="seekVideo(comment.VideoTime)">
+						<a href="javascript:;" ng-click="seekVideo(comment.VideoTime, comment.CommentText)">
 							{{formatMovieDuration(comment.VideoTime, false, true, true)}}
 						</a>
 					</span>

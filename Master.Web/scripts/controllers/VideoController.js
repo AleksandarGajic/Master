@@ -43,7 +43,20 @@ Master.controller('VideoController', ['$scope', '$routeParams', 'ext', 'server',
     		}
     	};
 
-    	$scope.seekVideo = function (time) {
+    	$scope.seekVideo = function (time, text) {
+    		if ($scope.TimeoutInstance) {
+    			clearTimeout($scope.TimeoutInstance);
+    		}
+
+    		$scope.showMessageBox = true;
+    		$scope.MessageBoxText = text;
+    		ext.safeApply($scope);
+
+    		$scope.TimeoutInstance = setTimeout(function () {
+    			$scope.showMessageBox = false;
+    			ext.safeApply($scope);
+    		}, 3000);
+
     		jwplayer().seek(time);
     	};
 
